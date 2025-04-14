@@ -16,8 +16,7 @@ Follow these steps to set up the testing environment:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/uniswap-audit.git
-cd uniswap-audit/test-environment
+git clone https://github.com/Security4Web3/MockAudits/UniSwap Audit
 ```
 
 ### 2. Install Dependencies

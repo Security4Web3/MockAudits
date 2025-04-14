@@ -1,50 +1,61 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-ethers");
+require("dotenv").config();
 
-/** @type import('hardhat/config').HardhatUserConfig */
+// Use a public RPC endpoint for testing
+const FORK_URL = "https://eth-mainnet.public.blastapi.io";
+
 module.exports = {
   solidity: {
     compilers: [
       {
-        version: "0.7.6", // Uniswap V3 uses Solidity 0.7.6
+        version: "0.7.6",
         settings: {
           optimizer: {
             enabled: true,
-            runs: 200
-          }
-        }
+            runs: 200,
+          },
+        },
       },
       {
-        version: "0.8.28", // For our test contracts
+        version: "0.8.0",
         settings: {
           optimizer: {
             enabled: true,
-            runs: 200
-          }
-        }
-      }
-    ]
+            runs: 200,
+          },
+        },
+      },
+      {
+        version: "0.8.20",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      },
+      {
+        version: "0.8.28",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      },
+    ],
   },
   networks: {
     hardhat: {
       forking: {
-        // Forking mainnet for realistic testing
-        url: "https://eth-mainnet.g.alchemy.com/v2/demo",
-        blockNumber: 18000000 // Using a recent block number
+        url: FORK_URL,
+        blockNumber: 16000000, // Using an older block for better compatibility
       },
-      chainId: 1337
+      chainId: 1,
     },
-    localhost: {
-      url: "http://127.0.0.1:8545"
-    }
-  },
-  paths: {
-    sources: "./contracts",
-    tests: "./test",
-    cache: "./cache",
-    artifacts: "./artifacts"
   },
   mocha: {
-    timeout: 40000
-  }
+    timeout: 100000,
+  },
 };

@@ -1,4 +1,6 @@
 // SPDX-License-Identifier: MIT
+pragma abicoder v2;  // Add this line to enable ABI coder v2
+
 pragma solidity ^0.7.6;
 
 interface ISwapRouter {

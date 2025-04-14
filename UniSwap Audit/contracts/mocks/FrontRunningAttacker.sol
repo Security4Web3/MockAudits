@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "../interfaces/IUniswapV3Pool.sol";
+import "../interfaces/UniswapV3InterfacesCompat.sol";
 
 /**
  * @title FrontRunningAttacker
@@ -10,10 +10,10 @@ import "../interfaces/IUniswapV3Pool.sol";
  * This contract is used for testing purposes to verify Uniswap's resistance to front-running
  */
 contract FrontRunningAttacker {
-    IUniswapV3Pool public pool;
+    IUniswapV3PoolCompat public pool;
     
     constructor(address _pool) {
-        pool = IUniswapV3Pool(_pool);
+        pool = IUniswapV3PoolCompat(_pool);
     }
     
     /**

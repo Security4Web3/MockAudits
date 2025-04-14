@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+pragma abicoder v2;
 pragma solidity ^0.7.6;
 
 interface IUniswapV3Pool {

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "../interfaces/IUniswapV3Pool.sol";
+import "../interfaces/UniswapV3InterfacesCompat.sol";
 
 /**
  * @title SwapReentrancyAttacker
@@ -10,11 +10,11 @@ import "../interfaces/IUniswapV3Pool.sol";
  * This contract is used for testing purposes only to verify that Uniswap's reentrancy guards are working
  */
 contract SwapReentrancyAttacker {
-    IUniswapV3Pool public pool;
+    IUniswapV3PoolCompat public pool;
     bool public attackMode;
     
     constructor(address _pool) {
-        pool = IUniswapV3Pool(_pool);
+        pool = IUniswapV3PoolCompat(_pool);
     }
     
     function attack(bool zeroForOne, int256 amountSpecified, uint160 sqrtPriceLimitX96) external {
